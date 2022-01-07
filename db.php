@@ -18,5 +18,7 @@ if (($handle = fopen("monster.csv", "r")) !== FALSE){
     fclose($handle);
 }
 $conn -> close();
+aasdasdsada
+asdfvacghvas
 
 ?>
