@@ -9,16 +9,15 @@ $conn=new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: ". $conn->connect_error);
 }
+$query = <<<eof
+    LOAD DATA INFILE 'monster.csv'
+     INTO TABLE jobs
+     FIELDS TERMINATED BY ','
+     IGNORE 1 ROWS;
+eof;
 
-if (($handle = fopen("monster.csv", "r")) !== FALSE){
-    while(($row = fgetcsv($handle)) !== FALSE){
-        $conn->query('INSERT INTO jobs (posts,companys, place, experience) VALUES ("'.$row[0].'","'.$row[1].'", "'.$row[2].'", "'.$row[3].'")');
-
-    }
-    fclose($handle);
-}
+$conn->query($query);
 $conn -> close();
-aasdasdsada
-asdfvacghvas
+
 
 ?>
