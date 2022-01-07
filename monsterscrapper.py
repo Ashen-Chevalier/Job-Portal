@@ -8,6 +8,7 @@ import time
 
 posts = []
 companys = []
+description = []
 location = []
 experience = []
 
@@ -29,11 +30,16 @@ for s in r:
         location.append(place)
         exp = x[1].small.text
         experience.append(exp)
+    jobs_p = soup.find_all('p', class_ = 'job-descrip hidden-sm')
+    for x in jobs_p:
+        text = x.text
+        description.append(text)
 jobs = pd.DataFrame({
 'posts': posts,
 'companys': companys,
 'location': location,
 'experience': experience,
+'description': description
 })
 jobs['location'] = jobs['location'].replace(r'\s+|\\n', ' ', regex=True)
 jobs['location'] = jobs['location'].str.replace(',', '')
@@ -43,9 +49,12 @@ jobs['experience'] = jobs['experience'].replace(r'\s+|\\n', ' ', regex=True)
 jobs['experience'] = jobs['experience'].str.replace(',', '')
 jobs['posts'] = jobs['posts'].replace(r'\s+|\\n', ' ', regex=True)
 jobs['posts'] = jobs['posts'].str.replace(',', '')
+jobs['description'] = jobs['description'].replace(r'\s+|\\n', ' ', regex=True)
+jobs['description'] = jobs['description'].str.replace(',', '')
+
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
 pd.set_option('display.max_colwidth', None)
 
-jobs.to_csv('monster.csv')
+jobs.to_csv('monster.csv', index = False)
 

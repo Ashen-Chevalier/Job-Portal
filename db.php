@@ -13,6 +13,7 @@ if ($conn->connect_error) {
 if (($handle = fopen("monster.csv", "r")) !== FALSE){
     while(($row = fgetcsv($handle)) !== FALSE){
         $conn->query('INSERT INTO jobs (posts,companys, place, experience) VALUES ("'.$row[0].'","'.$row[1].'", "'.$row[2].'", "'.$row[3].'")');
+
     }
     fclose($handle);
 }
