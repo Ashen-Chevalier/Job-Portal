@@ -1,3 +1,4 @@
+from pickle import NONE
 import requests
 from requests import get
 from bs4 import BeautifulSoup
@@ -5,14 +6,16 @@ import numpy as np
 import pandas as pd
 import random
 import time
+import re
 
 posts = []
 companys = []
 description = []
 location = []
 experience = []
+apply_links=[]
 
-r = np.arange(1,11,1)
+r = np.arange(1,6,1)
 for s in r:
     time.sleep(random.randint(2,10))
     url = f"https://www.monsterindia.com/search/python-jobs-{s}"
@@ -30,16 +33,24 @@ for s in r:
         location.append(place)
         exp = x[1].small.text
         experience.append(exp)
-    jobs_p = soup.find_all('p', class_ = 'job-descrip hidden-sm')
+    jobs_p = soup.find_all('p', class_ = 'job-descrip visible-sm')
     for x in jobs_p:
-        text = x.text
-        description.append(text)
+        if x != None or x.text != "":
+            description.append(x.text)
+        else:
+            description.append("Description not availabe")
+    links = soup.find_all(href = re.compile("searchId"))
+    for link in links[:25]:
+        apply_links.append(link.get('href'))
+
+
 jobs = pd.DataFrame({
-'posts': posts,
+'posts': posts, 
 'companys': companys,
 'location': location,
 'experience': experience,
-'description': description
+'description': description,
+'apply_links': apply_links
 })
 jobs['location'] = jobs['location'].replace(r'\s+|\\n', ' ', regex=True)
 jobs['location'] = jobs['location'].str.replace(',', '')

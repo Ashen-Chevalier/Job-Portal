@@ -1,14 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "jobs";
-
-$conn=new mysqli($servername, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection failed: ". $conn->connect_error);
-}
+require_once("connection.php");
 $query = <<<eof
     LOAD DATA INFILE 'monster.csv'
      INTO TABLE jobs
@@ -18,6 +9,4 @@ eof;
 
 $conn->query($query);
 $conn -> close();
-
-
 ?>
