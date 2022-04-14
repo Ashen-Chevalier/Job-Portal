@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Lethologica - A Job website</title>
+  <title>Letho - A Job website</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -51,7 +51,7 @@
     <div class="container d-flex align-items-center justify-content-between">
       <!-- Uncomment below if you prefer to use an image logo -->
       <!--<a href="index.php" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      <h1 class="logo"><a href="index.php">leth</a></h1>
+      <h1 class="logo"><a href="index.php">letho</a></h1>
       
 
       <nav id="navbar" class="navbar">
@@ -140,7 +140,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
-      <h1>Welcome to Lethologica</h1>
+      <h1>Welcome to Letho</h1>
       <h2>A job portal website</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
@@ -157,9 +157,9 @@
             <img src="assets/img/about.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
-            <h3>Lethologica: Job Portal</h3>
+            <h3>Letho: Job Portal</h3>
             <p class="fst-italic">
-              Find a list of all jobs displayed from fetching the contents from various different websites. Lethologica : Job Portal provides complete one stop solution to view jobs, applications and postings from various different existing webistes curated at one place. 
+              Find a list of all jobs displayed from fetching the contents from various different websites. Letho : Job Portal provides complete one stop solution to view jobs, applications and postings from various different existing webistes curated at one place. 
             </p>
             <ul>
               <li><i class="bi bi-check-circle"></i> Live upto-date content</li>
@@ -167,7 +167,7 @@
               <li><i class="bi bi-check-circle"></i> All the contents loaded are from values stored in a database by scrapping an existing job portal site and thus, no guarantees are taken about a postings legitimacy or use. In case of reporting or feedback</li>
             </ul>
             <p>
-              Lethologica : Job Portal uses a static webiste scrapping techinque to build its own list of websites to ease users in their hunt for jobs thus eliminating the  need for users to go to multiple different sites for thier hunt.<br>
+              Letho : Job Portal uses a static webiste scrapping techinque to build its own list of websites to ease users in their hunt for jobs thus eliminating the  need for users to go to multiple different sites for thier hunt.<br>
               It uses a scrapper developed entirely in python for its operation and loads the data generated into a csv form which is then loaded into a Database.
             </p>
           </div>
@@ -185,7 +185,7 @@
             <div class="box">
               <span>01</span>
               <h4>Hassle free</h4>
-              <p>With Lethologica you can avoid going to any other job site and avoid the hassle.</p>
+              <p>With Letho you can avoid going to any other job site and avoid the hassle.</p>
             </div>
           </div>
 
