@@ -49,7 +49,7 @@ jobs = pd.DataFrame({
 'location': location,
 'experience': experience,
 'description': description,
-'apply_links': apply_links
+'links': apply_links
 })
 jobs['location'] = jobs['location'].replace(r'\s+|\\n', ' ', regex=True)
 jobs['location'] = jobs['location'].str.replace(',', '')
