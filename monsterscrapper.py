@@ -24,7 +24,7 @@ for s in r:
     soup = BeautifulSoup(results.text, "html.parser")
     jobs_div = soup.find_all('div', class_='job-tittle')
     for container in jobs_div:
-        post = container.h3.a.text 
+        post = container.h3.a.text
         posts.append(post)
         company = container.span.a if container.span.a != None else container.span
         companys.append(company.text)
@@ -33,7 +33,7 @@ for s in r:
         location.append(place)
         exp = x[1].small.text
         experience.append(exp)
-    jobs_p = soup.find_all('p', class_ = 'job-descrip visible-sm')
+    jobs_p = soup.find_all('p', class_ = 'job-descrip')
     for x in jobs_p:
         if x != None or x.text != "":
             description.append(x.text)
@@ -42,7 +42,6 @@ for s in r:
     links = soup.find_all(href = re.compile("searchId"))
     for link in links[:25]:
         apply_links.append(link.get('href'))
-
 
 jobs = pd.DataFrame({
 'posts': posts, 
