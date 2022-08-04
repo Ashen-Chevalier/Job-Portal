@@ -1,4 +1,3 @@
-from pickle import NONE
 import requests
 from requests import get
 from bs4 import BeautifulSoup
@@ -22,6 +21,7 @@ for s in r:
     headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
     results = requests.get(url, headers=headers)
     soup = BeautifulSoup(results.text, "html.parser")
+    print(soup)
     jobs_div = soup.find_all('div', class_='job-tittle')
     for container in jobs_div:
         post = container.h3.a.text
