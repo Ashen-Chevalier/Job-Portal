@@ -11,7 +11,7 @@ if($result->num_rows > 0){
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Day Bootstrap Template - Index</title>
+  <title>Letho - Job Portal</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -64,8 +64,6 @@ if($result->num_rows > 0){
         <ul>
           <li><a class="nav-link scrollto active" href="index.php #hero">Home</a></li>
           <li><a class="nav-link scrollto" href="index.php #about">About</a></li>
-          <li><a class="nav-link scrollto" href="index.php #services">Services</a></li>
-          <li><a class="nav-link scrollto" href="index.php #pricing">Pricing</a></li>
           <li><a class="nav-link scrollto" href="output1.php">Jobs</a></li>
           <li><a class="nav-link scrollto" href="index.php #contact">Contact</a></li>
           <li><a class="nav-link" data-bs-toggle="modal" data-bs-target="#signinModal" href="">Sign In</a></li>
@@ -176,6 +174,7 @@ if($result->num_rows > 0){
     <a href="output5.php" class = "btn btn-lg btn-danger" role = "button"> Next ></a></div>
 </div>
 </main>
+<!-- ======= Footer ======= -->
 <footer id="footer">
     <div class="footer-top">
       <div class="container">
@@ -185,8 +184,9 @@ if($result->num_rows > 0){
             <div class="footer-info">
               <h3>Day</h3>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
+                #62, Sri Rama RMR PG <br>
+                Ambedkar Nagar, Whitefield,Bangalore,<br>
+                Karnataka, 560066 <br><br>
                 <strong>Phone:</strong> +91 9739946347<br>
                 <strong>Email:</strong> mayankshandilya1@gmail.com<br>
               </p>
@@ -248,6 +248,7 @@ if($result->num_rows > 0){
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
+  <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -257,5 +258,34 @@ if($result->num_rows > 0){
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+  <script>
+  $("#signup_form").on("submit", function (e) {
+    e.preventDefault();
+    $.ajax({
+        url: "add.php", //PHP FILE HERE
+        type: "post",
+        data: $(this).serialize(),
+        beforeSend: function () {
+            $("#success_person").show();
+            $("#success_person").html("Adding data to database...")
+        },
+        complete: function () {
+            $("#success_person").delay(3e3).fadeOut()
+        },
+        success: function (e) {
+            $("#success_person").show();
+            $("#success_person").html(e);
+            $("#success_person").delay(3e3).fadeOut();
+            $("#signup_form")[0].reset()
+        },
+        error: function (e, t, n) {
+            alert(e.status);
+            alert(n)
+        }
+    })
+});
+</script>
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 <?php
 require_once("connection.php");
-$sql = "SELECT * FROM jobs LIMIT 27";
+$sql = "SELECT * FROM jobs2 LIMIT 27";
 $result = $conn->query($sql);
 if($result->num_rows > 0){
 ?>
@@ -41,7 +41,7 @@ if($result->num_rows > 0){
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope-fill"></i><a href="mailto:mayankshandilya1@gmail.com">mayankshandilya1@gmail.com</a>
-        <i class="bi bi-phone-fill phone-icon"></i> +91 9739946347
+        <i class="bi bi-phone-fill phone-icon"></i> +191 9739946347
       </div>
       <div class="social-links d-none d-md-block">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -156,8 +156,8 @@ if($result->num_rows > 0){
 <div class="container">
     <div class="row">
         <?php while($row = $result->fetch_assoc()){ ?>
-        <div class="col-4 my-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="card shadow p-3 mb-5 rounded">
+        <div class="col-4 my-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="150">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
                 <div class="card-body d-flex flex-column">
                     <h4 class = "card-title"><?php echo "".$row['posts']."" ;?></h4>
                     <span class="text-primary">Company : <?php echo $row['companys'] ;?></span>
@@ -170,8 +170,9 @@ if($result->num_rows > 0){
         </div>
         <?php } }?>
     </div>
+    <div class="d-flex justify-content-end"><a href="output1.php" class = "btn btn-lg btn-danger" role = "button">< Previous</a>&nbsp&nbsp
+    <a href="output3.php" class = "btn btn-lg btn-danger" role = "button"> Next ></a></div>
 </div>
-<div class = container><div class="d-flex flex-row-reverse"><a href="output2.php" class = "btn btn-lg btn-danger" role = "button"> Next ></a></div></div>
 </main>
 <!-- ======= Footer ======= -->
 <footer id="footer">
